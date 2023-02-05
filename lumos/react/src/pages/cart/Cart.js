@@ -24,7 +24,7 @@ export default function Cart() {
     const navigate = useNavigate();
     const order = useSelector(state => state.cartReducer);
 
-    const roleAdmin = token.auth.filter(role => {return role == "ROLE_ADMIN"}).length;
+    const roleAdmin = token?.auth.filter(role => {return role == "ROLE_ADMIN"}).length;
     // const isAdmin = decodeJwt(window.localStorage.getItem("accessToken")).auth.includes("ROLE_ADMIN");
     // console.log("관리자 권한 확인 (roleAdmin)", roleAdmin); // 1
     // console.log("관리자 권한 확인 (isAdmin)", isAdmin);     // true
@@ -35,14 +35,14 @@ export default function Cart() {
 
     useEffect(
         () => {
-            if (token.exp * 1000 < Date.now()) {
+            if (token?.exp * 1000 < Date.now()) {
                 alert("로그인이 만료되었습니다. 다시 로그인해 주세요.");
                 setLoginModal(true);
                 return;
             }
 
             dispatch(callCartDetailAPI({	
-                memberId: token.sub
+                memberId: token?.sub
             }));  
         }
         ,[]
@@ -254,7 +254,7 @@ export default function Cart() {
             </div>
             : 
             (
-                roleAdmin == 1
+                !token || roleAdmin == 1
                 ?
                 <ErrorMindol/>
                 :
