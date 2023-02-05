@@ -28,7 +28,7 @@ export default function OrderDashBoard() {
     // pageinfo가 없어서 .data 할 필요 X
     const orderList  = useSelector(state => state.dashBoardReducer);  
     const questionList  = useSelector(state => state.questionReducer);  
-    const isAdmin = decodeJwt(window.localStorage.getItem("accessToken")).auth.includes("ROLE_ADMIN");
+    const isAdmin = decodeJwt(window.localStorage.getItem("accessToken"))?.auth.includes("ROLE_ADMIN");
 
     useEffect(
         () => {

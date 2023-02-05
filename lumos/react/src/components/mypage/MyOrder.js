@@ -1,7 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {useEffect, useState, useContext} from 'react';
 import {useNavigate, useLocation} from 'react-router-dom';
-import {dateFomatter} from '../../modules/Fommater';
+import {dateFormatter} from '../../modules/Formmater';
 
 import {callOrderListAPI} from '../../apis/OrderAPICalls';
 
@@ -55,7 +55,7 @@ export default function MyOrder({orderList}) {
                         (Array.isArray(orderList) && orderList.length > 0)
                         ? orderList.map((order) => (
                             <tr key={order.orderNum}>
-                                <td onClick={() => onClickHandler(order.orderCode)}>{dateFomatter(order.orderDate)}</td>
+                                <td onClick={() => onClickHandler(order.orderCode)}>{dateFormatter(order.orderDate)}</td>
                                 <td onClick={() => onClickHandler(order.orderCode)}>{order.orderCode}</td>
                                 <td onClick={() => onClickHandler(order.orderCode)}>{order.cgNm}</td>
                                 <td onClick={() => onClickHandler(order.orderCode)}>{order.paymentMt}</td>

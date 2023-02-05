@@ -24,7 +24,7 @@ export default function OrderDetail() {
 
     const [loginModal, setLoginModal] = useState(false); 
     const token = decodeJwt(window.localStorage.getItem("accessToken")); 
-    const isAdmin = token.auth.includes("ROLE_ADMIN");
+    const isAdmin = token?.auth.includes("ROLE_ADMIN");
     const dispatch = useDispatch();
     const params = useParams();
     const order  = useSelector(state => state.orderReducer); 
@@ -32,7 +32,7 @@ export default function OrderDetail() {
 
     useEffect(
         () => {
-            if (token.exp * 1000 < Date.now()) {
+            if (token?.exp * 1000 < Date.now()) {
                 alert("로그인이 만료되었습니다. 다시 로그인해 주세요.");
                 setLoginModal(true);
                 return;

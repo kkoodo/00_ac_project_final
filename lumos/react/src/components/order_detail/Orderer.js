@@ -1,4 +1,4 @@
-import {phoneFomatter} from '../../modules/Fommater';
+import {phoneFormatter} from '../../modules/Formmater';
 
 export default function Orderer({order : {memberCode: member, ...etc}}) {
 
@@ -23,7 +23,7 @@ export default function Orderer({order : {memberCode: member, ...etc}}) {
                     </tr>
                     <tr>
                         <th>연락처</th>
-                        <td>{phoneFomatter(member.memberPhone)}</td>
+                        <td>{phoneFormatter(member.memberPhone)}</td>
                     </tr>
                 </tbody>
             </table>

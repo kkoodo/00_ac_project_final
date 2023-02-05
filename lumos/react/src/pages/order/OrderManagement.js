@@ -6,11 +6,11 @@ import {callOrderSearchAPI} from '../../apis/OrderAPICalls';
 
 import SearchResult from '../../components/order/SearchResult';
 
-import {dateCreatorToday} from '../../modules/Fommater';
-import {dateCreatorWeek} from '../../modules/Fommater';
-import {dateCreator1Month} from '../../modules/Fommater';
-import {dateCreator3Months} from '../../modules/Fommater';
-import {dateCreator6Months} from '../../modules/Fommater';
+import {dateCreatorToday} from '../../modules/Formmater';
+import {dateCreatorWeek} from '../../modules/Formmater';
+import {dateCreator1Month} from '../../modules/Formmater';
+import {dateCreator3Months} from '../../modules/Formmater';
+import {dateCreator6Months} from '../../modules/Formmater';
 import OrderManagementCSS from './OrderManagement.module.css';
 
 import {OrderContext} from '../../App';
@@ -25,7 +25,7 @@ export default function OrderManagement() {
 
     const [loginModal, setLoginModal] = useState(false); 
     const token = decodeJwt(window.localStorage.getItem("accessToken")); 
-    const roleAdmin = token.auth.includes("ROLE_ADMIN");
+    const roleAdmin = token?.auth.includes("ROLE_ADMIN");
 
     const dispatch = useDispatch();
 
@@ -151,7 +151,7 @@ export default function OrderManagement() {
 
     useEffect(
         () => {
-            if (token.exp * 1000 < Date.now()) {
+            if (token?.exp * 1000 < Date.now()) {
                 alert("로그인이 만료되었습니다. 다시 로그인해 주세요.");
                 setLoginModal(true);
                 return;

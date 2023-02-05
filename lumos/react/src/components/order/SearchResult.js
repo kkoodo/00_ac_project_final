@@ -1,7 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {useEffect, useState, useContext} from 'react';
 import {useNavigate, useLocation} from 'react-router-dom';
-import {dateFomatter} from '../../modules/Fommater';
+import {dateFormatter} from '../../modules/Formmater';
 
 import {callOrderListAPI} from '../../apis/OrderAPICalls';
 
@@ -277,7 +277,7 @@ export default function SearchResult({updateKind, isAbled, setIsAbled, searchOrd
                                     // : <td><input type={'checkbox'} onClick={selectHandler} id="childCheck"></input></td>
                                     : null
                                 }
-                                <td onClick={() => onClickHandler(order.orderCode)}>{dateFomatter(order.orderDate)}</td>
+                                <td onClick={() => onClickHandler(order.orderCode)}>{dateFormatter(order.orderDate)}</td>
                                 <td onClick={() => onClickHandler(order.orderCode)}>{order.orderCode}</td>
                                 <td onClick={() => onClickHandler(order.orderCode)}>{order.memberCode.memberName}</td>
                                 <td onClick={() => onClickHandler(order.orderCode)}>{order.memberCode.memberId}</td>

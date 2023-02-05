@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {phoneFomatter} from '../../modules/Fommater';
+import {phoneFormatter} from '../../modules/Formmater';
 
 import {decodeJwt} from '../../utils/tokenUtils';
 import {callGetMemberAPI} from '../../apis/MemberAPICalls';
@@ -120,7 +120,7 @@ export default function Consignee({order, orderInfo, setOrderInfo}) {
                     </tr>
                     <tr>
                         <th>연락처</th>
-                        <td>{order.cgPh ? phoneFomatter(order.cgPh) : order.cgPh}</td>
+                        <td>{order.cgPh ? phoneFormatter(order.cgPh) : order.cgPh}</td>
                     </tr>
                     <tr>
                         <th>주소</th>
@@ -147,7 +147,7 @@ export default function Consignee({order, orderInfo, setOrderInfo}) {
                                 name="cgPh" 
                                 onChange={adsInfoChangeHandler}
                                 // value로 작성 시 '-' 실시간 반영
-                                value={phoneFomatter(orderInfo.cgPh) ?? ''}
+                                value={phoneFormatter(orderInfo.cgPh) ?? ''}
                                 placeholder="'-' 없이 숫자만 입력해 주세요"
                             ></input>
                         </td>

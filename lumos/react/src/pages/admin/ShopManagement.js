@@ -7,7 +7,7 @@ import {
 
 import ShopManagementCSS from './ShopManagement.module.css';
 
-import {bsrNumFomatter, cpTelFomatter, picTelFomatter, phoneFomatter} from '../../modules/Fommater';
+import {bsrNumFormatter, cpTelFormatter, picTelFormatter, phoneFormatter} from '../../modules/Formmater';
 import {useDaumPostcodePopup} from "react-daum-postcode";
 
 import {decodeJwt} from '../../utils/tokenUtils';
@@ -183,7 +183,7 @@ export default function ShopManagement() {
                     <tbody>
                         <tr>
                             <th>사업자 등록 번호</th>
-                            <td>{companyInfo && bsrNumFomatter(companyInfo.bsrNum)}</td>
+                            <td>{companyInfo && bsrNumFormatter(companyInfo.bsrNum)}</td>
                         </tr>
                         <tr>
                             <th>상호</th>
@@ -267,7 +267,7 @@ export default function ShopManagement() {
                                     name="cpTel"
                                     type={'tel'} 
                                     // value로 작성 시 '-' 실시간 반영
-                                    value={cpTelFomatter(company.cpTel) ?? ''}
+                                    value={cpTelFormatter(company.cpTel) ?? ''}
                                     onChange={companyInfoHandler}
                                 />
                             </td>
@@ -338,7 +338,7 @@ export default function ShopManagement() {
                                     name="csTel"
                                     type={'tel'}
                                     // value로 작성 시 '-' 실시간 반영 
-                                    value={picTelFomatter(shop.csTel) ?? ''} 
+                                    value={picTelFormatter(shop.csTel) ?? ''} 
                                     onChange={shopInfoHandler}/>
                             </td>
                         </tr>
@@ -380,7 +380,7 @@ export default function ShopManagement() {
                                     name="picTel"
                                     type={'text'}
                                     // value로 작성 시 '-' 실시간 반영
-                                    value={phoneFomatter(shop.picTel) ?? ''}
+                                    value={phoneFormatter(shop.picTel) ?? ''}
                                     onChange={shopInfoHandler}/>                        
                             </td>
                         </tr>
